@@ -1,49 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Tarefas.css';
 
-import addCircle from './assets/add.svg'; //icon botão adicionar
+//importando componentes
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
 function Tarefas() {
-
-  function lista(){
-    const input = document.getElementById('input');
-    const valorInput = input.value;
-    input.value = "";
-
-    if(valorInput.length === 0){
-      alert("Nenhuma tarefa foi adiconada, tente novamente");
-    }else{
-      const artigo = document.getElementById('tarefas');
-
-      const div = document.createElement('div');
-      artigo.appendChild(div);
-
-      const p = document.createElement('p');
-      p.innerHTML = valorInput;
-      div.appendChild(p);
-    }
-    
-  }
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
 
   return (
-    <section>
-      <div className="content">
-
+    <section className="content">
+      <div className="Tarefas">
         <h1>Tarefas</h1>
-        <div className="underline"></div>
 
-        <div className="tarefas">
-          <article id="tarefas">
-            {/* onde as tarefas aparecerão */}
-          </article>
-        </div>
+        {/* parte da lista de tarefas */}
+        <TodoList 
+          todos={todos}
+          setTodos={setTodos}
+        /> 
 
-        <div className="input">
-          <input type="text" id="input" placeholder="Nova tarefa..." />
-          <input type="number" name="num-pomo" id="num-pomo" placeholder="ex: 1 pom." min="1"/>
-          <img src={addCircle} alt="botão de adicionar" id="add-btn" onClick={lista} />
-        </div>
-
+        
+        {/* parte do input para tarefas */}
+        <TodoForm 
+          setInputText={setInputText}
+          todos={todos}
+          setTodos={setTodos}
+          inputText={inputText}
+        />
       </div>
     </section>
   );
