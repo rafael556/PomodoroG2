@@ -26,18 +26,7 @@ function TodoForm({ setInputText, todos, setTodos, inputText }) {
     <form>
       <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" placeholder="Nova tarefa..." />
       <div className="num-pomo">
-      <select name="pomo-num" id="pomo-num" placeholder="ex: 1 pom.">
-        <option value="1 pom.">1 pom.</option>
-        <option value="1 pom.">2 pom.</option>
-        <option value="1 pom.">3 pom.</option>
-        <option value="1 pom.">4 pom.</option>
-        <option value="1 pom.">5 pom.</option>
-        <option value="1 pom.">6 pom.</option>
-        <option value="1 pom.">7 pom.</option>
-        <option value="1 pom.">8 pom.</option>
-        <option value="1 pom.">9 pom.</option>
-        <option value="1 pom.">10 pom.</option>
-      </select>
+        <input type="number" name="pomo-num" id="pomo-num" placeholder="ex: 1pom." min="1" />
       </div>
       <button onClick={submitTodoHandler} classNameName="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
