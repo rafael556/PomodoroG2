@@ -100,7 +100,7 @@ form button:hover {
   align-items: center;
   transition: all 1s ease;
   border-bottom: 1px solid #d4d4d4;
-  height: 50px;
+  padding: 10px 0;
 }
 
 .todo li {
@@ -109,6 +109,15 @@ form button:hover {
   text-align: left;
   color: black;
   padding: 0rem 0.5rem;
+}
+
+.quant-pomo{
+  width: 100px;
+}
+
+.quant-pomo li {
+  color: rgb(100, 100, 100);
+  font-weight: 500;
 }
 
 .todo:hover .trash-btn {

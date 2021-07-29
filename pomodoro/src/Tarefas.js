@@ -9,6 +9,7 @@ import Timer from './assets/timer.svg';
 function Tarefas() {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
+  const [pomo, setPomo] = useState([]);
 
   return (
     <section className="content">
@@ -22,15 +23,18 @@ function Tarefas() {
         <TodoList 
           todos={todos}
           setTodos={setTodos}
+          pomo={pomo}
+          setPomo={setPomo}
         /> 
 
-        
         {/* parte do input para tarefas */}
         <TodoForm 
           setInputText={setInputText}
           todos={todos}
           setTodos={setTodos}
           inputText={inputText}
+          pomo={pomo}
+          setPomo={setPomo}
         />
       </div>
     </section>

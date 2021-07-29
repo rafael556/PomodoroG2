@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-function TodoList({ todos, setTodos }) {
+function TodoList({ todos, setTodos, pomo, setPomo }) {
   return (
     <div className="todo-container">
       <ul className="todo-list">
@@ -15,6 +15,9 @@ function TodoList({ todos, setTodos }) {
             key={todo.id} 
             todo={todo}
             text={todo.text}  
+            pomo={pomo}
+            setPomo={setPomo}
+            num={todo.num}
           />
         ))}
       </ul>

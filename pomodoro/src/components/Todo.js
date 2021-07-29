@@ -1,7 +1,6 @@
 import React from 'react';
 
-function Todo({ text, todo, todos, setTodos }) {
-
+function Todo({ text, todo, todos, setTodos, num }) {
   //eventos
   //deletar tarefa
   const deleteHandler = () => {
@@ -37,6 +36,11 @@ function Todo({ text, todo, todos, setTodos }) {
       <button onClick={deleteHandler} className="trash-btn">
         <i className="fas fa-trash"></i>
       </button>
+
+      
+      <div className="quant-pomo">
+        <li>{num} pom.</li>
+      </div>
     </div>
   );
 }
