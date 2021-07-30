@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import '../style/Header.css'
+
+import '../styles/Header.css'
 import logo from '../assets/Logo-Tomate Vermelho.svg'
 import engrenagem from '../assets/Engrenagem.svg'
 import Modal from './Modal'

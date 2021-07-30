@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import '../style/Modal.css'
+
+import '../styles/Modal.css'
+
 
 export default props => {
   const [pomodoro, setPomodoro] = useState(25)

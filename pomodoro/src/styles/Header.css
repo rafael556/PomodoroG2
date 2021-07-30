@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Ultra&display=swap');
+
+.Header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 70%;
+  margin: 20px auto;
+}
+
+.Header .logo{
+  width: 55px;
+  height: 95px;
+}
+
+.Header p{
+  margin: 0;
+  font-size: 4.5rem;
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  color: #226ED8;
+}
+
+.Header span{
+  font-family: 'Ultra';
+  color: #CF2500;
+}
+
+.Header .engrenagem{
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+}
