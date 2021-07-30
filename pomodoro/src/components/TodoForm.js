@@ -36,7 +36,7 @@ function TodoForm({ setInputText, todos, setTodos, inputText, pomo, setPomo }) {
 
   return (
     //parte do input para a tarefa, quantidade de pomodoros e botão de adicionar
-    <form>
+    <form id="form-todo">
       <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" placeholder="Nova tarefa..." />
       <div className="num-pomo">
         <input value={pomo} onChange={pomoHandler} type="number" name="pomo-num" id="pomo-num" placeholder="ex: 1pom." min="1" />

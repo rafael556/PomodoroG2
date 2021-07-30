@@ -39,7 +39,7 @@ function Todo({ text, todo, todos, setTodos, num }) {
 
       {/* mostrar quantidade de pomodoros */}
       <div className="quant-pomo">
-        <li>{num} pom.</li>
+        <li>{num} <br />pom.</li>
       </div>
     </div>
   );
