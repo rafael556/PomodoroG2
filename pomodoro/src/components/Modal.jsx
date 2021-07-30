@@ -27,19 +27,16 @@ export default props => {
           <div className="formulario">
             <label>Pomodoro</label>
             <input type="number" onChange={pomo}/>
-            {pomodoro}
           </div>
 
           <div className="formulario">
             <label>Pausa Curta</label>
             <input type="number" onChange={curta}/>
-            {pausaCurta}
           </div>
 
           <div className="formulario">
             <label>Pausa Longa</label>
             <input type="number" onChange={longa}/>
-            {pausaLonga}
           </div>
         </form>
 
