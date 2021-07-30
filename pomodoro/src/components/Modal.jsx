@@ -23,7 +23,7 @@ export default props => {
         <h1>Configuração</h1>
         <p>Tempo (minutos)</p>
 
-        <form action="">
+        <form action="" id="id-pomodoro">
           <div className="formulario">
             <label>Pomodoro</label>
             <input type="number" onChange={pomo}/>
@@ -40,7 +40,7 @@ export default props => {
           </div>
         </form>
 
-        <button>Salvar</button>
+        <button type="submit" form="id-pomodoro">Salvar</button>
       </div>
     </div>
   )
