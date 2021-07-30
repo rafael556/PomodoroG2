@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Todo({ text, todo, todos, setTodos, num }) {
-  //eventos
+  
   //deletar tarefa
   const deleteHandler = () => {
     setTodos(todos.filter(el => el.id !== todo.id));
@@ -37,7 +37,7 @@ function Todo({ text, todo, todos, setTodos, num }) {
         <i className="fas fa-trash"></i>
       </button>
 
-      
+      {/* mostrar quantidade de pomodoros */}
       <div className="quant-pomo">
         <li>{num} pom.</li>
       </div>

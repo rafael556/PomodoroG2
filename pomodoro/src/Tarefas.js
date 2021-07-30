@@ -4,7 +4,7 @@ import './Tarefas.css';
 //importando componentes
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import Timer from './assets/timer.svg';
+import Timer from './assets/timer.svg'; //imagem do relógio que será substituída quando o relógio definitivo for feito
 
 function Tarefas() {
   const [inputText, setInputText] = useState("");
@@ -12,6 +12,7 @@ function Tarefas() {
   const [pomo, setPomo] = useState([]);
 
   return (
+    //relógio em si
     <section className="content">
       <div className="timer">
         <img src={Timer} alt="timer" />
