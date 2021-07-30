@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import api from '../services/api';
 
 import '../styles/Login.css';
@@ -14,14 +14,14 @@ const Login = () => {
     }
     function handlePasswordChange(e) {
         setPasswordLogin(`${e.target.value}`);
-        
+
     }
 
     async function handleSubmit(e) {
         e.preventDefault();
 
         try {
-            await api.post('login', {
+            await api.post('/login', {
 
                 username: userLogin,
                 password: passwordLogin
@@ -56,13 +56,18 @@ const Login = () => {
                     <button class="button enter" type="submit" >Entrar</button>
                 </div>
             </form>
-            
+
             <div className="firstAcess">
-                    <h3>Primeira vez aqui?</h3>
-                    <Link to="/cadastro">
-                        <button class="button cadastrar">Cadastrar</button>
-                    </Link>
-                </div>
+                <h3>Primeira vez aqui?</h3>
+                <Link to="/cadastro">
+                    <button class="button cadastrar">Cadastrar</button>
+                </Link>
+            </div>
+
+            {/* REMOVER ANTES DE ENTREGAR */}
+            <Link to="/tarefas">
+                <button class="button cadastrar">Botão pra sair daqui</button>
+            </Link>
 
         </div>
 

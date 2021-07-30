@@ -4,6 +4,7 @@ import React from "react";
 
 import Cadastro from './pages/PageCadastro';
 import Login from './pages/PageLogin';
+import Tarefas from './pages/Tarefas';
 
 function Routes()
 {
@@ -12,6 +13,7 @@ function Routes()
             <Route exact path="/" component={Login}/>
             <Route path="/login" component={Login}/>
             <Route path="/cadastro" component={Cadastro}/>
+            <Route path="/tarefas" component={Tarefas}/>
         </Switch>
     );
 }
