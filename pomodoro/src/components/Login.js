@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import api from '../services/api';
 
 import '../styles/Login.css';
@@ -58,9 +59,9 @@ const Login = () => {
             
             <div className="firstAcess">
                     <h3>Primeira vez aqui?</h3>
-                    <a href="/cadastro">
+                    <Link to="/cadastro">
                         <button class="button cadastrar">Cadastrar</button>
-                    </a>
+                    </Link>
                 </div>
 
         </div>

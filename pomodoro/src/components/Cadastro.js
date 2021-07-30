@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import api from '../services/api';
 
 import '../styles/Cadastro.css';
@@ -78,9 +79,9 @@ const Cadastro = () => {
             <div>
                 <h3>Já possui conta?</h3>
                 
-                <a href="/login">
+                <Link to="/login">
                         <button class="cadlogin">Login</button>
-                </a>
+                </Link>
 
             </div>
         </div>
