@@ -11,12 +11,17 @@
   flex-direction: column;
 }
 
-h1 {
+.login h1 {
   width: 158px;
   height: 37px;
 
-  /*esse padding pode dar problema*/
-  padding-top: 211px;
+  margin-top: 76px;
+
+  cursor: default;
+
+  border: none;
+
+  white-space: nowrap;
 
   align-items: center;
   text-align: center;
@@ -34,11 +39,15 @@ h1 {
   color: rgba(0, 0, 0, 0.95);
 }
 
-h2 {
+.login h2 {
+  padding-left: 10px;
+
   width: 44px;
   height: 21px;
 
   margin-bottom: 2px;
+
+  cursor: default;
 
   font-family: Ubuntu;
   font-style: normal;
@@ -51,7 +60,7 @@ h2 {
   color: rgba(0, 0, 0, 0.95);
 }
 
-input {
+.login input {
   width: 449px;
   height: 45px;
   margin-bottom: 30px;
@@ -70,11 +79,13 @@ input {
   border-radius: 14px;
 }
 
-.button {
+.login .enter {
+  color: #ffffff;
+
   width: 449px;
   height: 44px;
 
-  background: #aac4ee;
+  background:#3071D9;
   border-radius: 10px;
 
   border: none;
@@ -88,20 +99,30 @@ input {
   letter-spacing: 0.038em;
 }
 
-.enter {
-  color: #ffffff;
-}
-
-.cadastrar {
+.login .cadastrar {
   background: #ffffff;
   border: 2px solid #4c4c4c;
   box-sizing: border-box;
   border-radius: 10px;
 
+  cursor:pointer;
+
   color: #4c4c4c;
+
+  width: 449px;
+  height: 44px;
+
+  text-align: center;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.038em;
 }
 
-h3 {
+.login h3 {
   margin-top: 68px;
   margin-bottom: 3px;
   font-family: Ubuntu;
@@ -111,6 +132,8 @@ h3 {
   line-height: 16px;
 
   text-align: center;
+
+  cursor: default;
 
   letter-spacing: -0.017em;
 

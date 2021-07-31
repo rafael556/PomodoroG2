@@ -11,8 +11,41 @@
   flex-direction: column;
 }
 
-h2 {
+.cadastro h1 {
+  width: 158px;
+  height: 37px;
+
+  margin-top: 76px;
+
+  cursor: default;
+
+  border: none;
+
+  white-space: nowrap;
+
+  align-items: center;
+  text-align: center;
+
+  margin-bottom: 11px;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+
+  letter-spacing: -0.017em;
+
+  color: rgba(0, 0, 0, 0.95);
+}
+
+
+.cadastro h2 {
+
+  padding-left: 10px;
   margin-bottom: 2px;
+
+  cursor: default;
   
   white-space: nowrap;
 
@@ -27,7 +60,7 @@ h2 {
   color: rgba(0, 0, 0, 0.95);
 }
 
-input {
+.cadastro input {
   width: 449px;
   height: 45px;
   margin-bottom: 30px;
@@ -47,14 +80,13 @@ input {
 }
 
 
-.enter {
+.cadastro .enter {
   width: 449px;
   height: 44px;
 
-  background: #aac4ee;
+  background:#3071D9;
   border-radius: 10px;
 
-  border: none;
   text-align: center;
 
   font-family: Ubuntu;
@@ -67,12 +99,14 @@ input {
   color: #ffffff;
 }
 
-.cadlogin {
+.cadastro .cadlogin {
   width: 449px;
   height: 44px;
 
   border: none;
   text-align: center;
+
+  cursor:pointer;
 
   font-family: Ubuntu;
   font-style: normal;
@@ -89,7 +123,7 @@ input {
   color: #4c4c4c;
 }
 
-h3 {
+.cadastro h3 {
   margin-top: 46px;
   margin-bottom: 3px;
   font-family: Ubuntu;
@@ -99,6 +133,8 @@ h3 {
   line-height: 16px;
 
   text-align: center;
+
+  cursor: default;
 
   letter-spacing: -0.017em;
 
