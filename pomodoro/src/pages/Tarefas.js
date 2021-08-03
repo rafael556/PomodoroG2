@@ -17,6 +17,7 @@ function Tarefas() {
     <section className="content">
       <div className="timer">
         <PomodoroClock />
+
       </div>
       <div className="Tarefas">
         <h1>Tarefas</h1>
