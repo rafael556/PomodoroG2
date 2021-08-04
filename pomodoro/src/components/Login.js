@@ -39,8 +39,8 @@ const Login = () => {
 
     return (
         //parte de login
-        <div className="login">
-            <form className="login" onSubmit={handleSubmit}>
+        <div class="login">
+            <form class="login" onSubmit={handleSubmit}>
                 <div>
                     <h1>Bem vindo!</h1>
                 </div>
@@ -53,14 +53,14 @@ const Login = () => {
                     <input type="password" placeholder="Sua senha..." name="loginPassword" id="loginPassword" onChange={handlePasswordChange}></input>
                 </div>
                 <div>
-                    <button class="button enter" type="submit" >Entrar</button>
+                    <button class="enter" type="submit" >Entrar</button>
                 </div>
             </form>
 
-            <div className="firstAcess">
+            <div>
                 <h3>Primeira vez aqui?</h3>
                 <Link to="/cadastro">
-                    <button class="button cadastrar">Cadastrar</button>
+                    <button class="cadastrar">Cadastrar</button>
                 </Link>
             </div>
 
