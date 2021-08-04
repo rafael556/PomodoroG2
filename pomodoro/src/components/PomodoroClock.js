@@ -24,6 +24,7 @@ class PomodoroClock extends React.Component {
     this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this);
     this.onPlayStopTimer = this.onPlayStopTimer.bind(this);
     this.onResetTimer = this.onResetTimer.bind(this);
+    this.skipTimer = this.skipTimer.bind(this);
   }
 
   onIncreaseBreakLength(){
@@ -94,6 +95,18 @@ class PomodoroClock extends React.Component {
     });
   }
 
+  skipTimer(isSession){
+    if(isSession===false){
+      this.setState({
+        timerMinute: this.state.sessionLength
+      });
+    }else if(isSession===true){
+      this.setState({
+        timerMinute: this.state.breakLength
+      });
+    }
+  }
+
   render(){
     return (
       <div>
@@ -116,6 +129,7 @@ class PomodoroClock extends React.Component {
           toggleInterval={this.onToggleInterval}
           resetTimer={this.onResetTimer}
           onPlayStopTimer={this.onPlayStopTimer}
+          skipTimer={this.skipTimer}
          />
       </div>
     );

@@ -80,6 +80,13 @@ class Timer extends React.Component {
 
   skipTimer(){
     this.stopTimer();
+    this.props.skipTimer(this.state.isSession);
+    this.props.onPlayStopTimer(true);
+    this.setState({
+      timerSecond: 0,
+      isSession: !this.state.isSession
+    });
+    this.playTimer();
   }
 
   render(){
