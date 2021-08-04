@@ -2,6 +2,7 @@ import React from 'react';
 
 import BreakTime from './BreakTime';
 import SessionTime from './SessionTime';
+import LongBreakTime from './LongBreakTime';
 import Timer from './Timer';
 import '../styles/Clock.css';
 
@@ -12,6 +13,7 @@ class PomodoroClock extends React.Component {
     this.state = {
       breakLength: 5,
       sessionLength: 25,
+      longBreakLength: 15,
       timerMinute: 25,
       isPlay: false
     }
@@ -20,6 +22,8 @@ class PomodoroClock extends React.Component {
     this.onDecreaseBreakLength = this.onDecreaseBreakLength.bind(this);
     this.onIncreaseSessionLength = this.onIncreaseSessionLength.bind(this);
     this.onDecreaseSessionLength = this.onDecreaseSessionLength.bind(this);
+    this.onIncreaseLongBreakLength = this.onIncreaseLongBreakLength.bind(this);
+    this.onDecreaseLongBreakLength = this.onDecreaseLongBreakLength.bind(this);
     this.onToggleInterval = this.onToggleInterval.bind(this);
     this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this);
     this.onPlayStopTimer = this.onPlayStopTimer.bind(this);
@@ -27,6 +31,7 @@ class PomodoroClock extends React.Component {
     this.skipTimer = this.skipTimer.bind(this);
   }
 
+  //aumentar de 1 em 1 o tempo do intervalo
   onIncreaseBreakLength(){
     this.setState((prevState) => {
       return {
@@ -35,7 +40,7 @@ class PomodoroClock extends React.Component {
     });
   }
 
-
+  //diminuir de 1 em 1 o tempo do intervalo
   onDecreaseBreakLength(){
     this.setState((prevState) => {
       return {
@@ -44,7 +49,7 @@ class PomodoroClock extends React.Component {
     });
   }
 
-
+  //aumentar de 1 em 1 o tempo da sessão de tarefa
   onIncreaseSessionLength(){
     this.setState((prevState) => {
       return {
@@ -54,15 +59,36 @@ class PomodoroClock extends React.Component {
     });
   }
 
+  //dimimuir de 1 em 1 o tempo da sessão de tarefa
   onDecreaseSessionLength(){
     this.setState((prevState) => {
       return {
         sessionLength: prevState.sessionLength - 1,
-        timerMinute: prevState.sessionLength - 1 //horário do timer é o mesmo que o da session, diminuiindo um diminui o outro
+        timerMinute: prevState.sessionLength - 1 //horário do timer é o mesmo que o da session, diminuindo um diminui o outro
       }
     });
   }
 
+  //aumentar de 1 em 1 o tempo do long break
+  onIncreaseLongBreakLength(){
+    this.setState((prevState) => {
+      return {
+        longBreakLength: prevState.longBreakLength + 1
+      }
+    });
+  }
+
+  //diminuir de 1 em 1 o tempo do long break
+  onDecreaseLongBreakLength(){
+    this.setState((prevState) => {
+      return {
+        longBreakLength: prevState.longBreakLength - 1
+      }
+    });
+  }
+
+
+  //atualizar o tempo
   onUpdateTimerMinute(){
     this.setState((prevState) => {
       return{
@@ -71,8 +97,10 @@ class PomodoroClock extends React.Component {
     });
   }
 
-  onToggleInterval(isSession){ //mudar da session pro break
-    if(isSession){
+
+  //mudar da session pro break
+  onToggleInterval(isSession){ 
+    if(isSession){ 
       this.setState({
         timerMinute: this.state.sessionLength
       });
@@ -83,18 +111,24 @@ class PomodoroClock extends React.Component {
     }
   }
 
+
+  //resetar o tempo já passado
   onResetTimer(){
     this.setState({
       timerMinute: this.state.sessionLength
     });
   }
 
+
+  //parar o tempo que está rodando
   onPlayStopTimer(isPlay){
     this.setState({
       isPlay: isPlay
     });
   }
 
+
+  //pular o tempo atual
   skipTimer(isSession){
     if(isSession===false){
       this.setState({
@@ -122,6 +156,14 @@ class PomodoroClock extends React.Component {
           increaseSession={this.onIncreaseSessionLength}
           decreaseSession={this.onDecreaseSessionLength}
         />
+
+        <LongBreakTime 
+          isPlay={this.state.isPlay}
+          longBreakTime={this.state.longBreakLength} 
+          increaseLongBreak={this.onIncreaseLongBreakLength}
+          decreaseLongBreak={this.onDecreaseLongBreakLength}
+        />
+
         <Timer 
           timerMinute={this.state.timerMinute} 
           breakLength={this.state.breakLength}

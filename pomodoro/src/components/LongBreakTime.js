@@ -1,21 +1,18 @@
 import React from 'react';
 
-function BreakTime(props) {
-
+function LongBreakTime(props) {
   function decreaseCounter(){
-    //não ser menor que 1
-    if(props.breakTime === 1){
+    if(props.longBreakTime === 1){
       return;
     }
-    props.decreaseBreak(); //criado em PomodoroClock
+    props.decreaseLongBreak(); //criado em PomodoroClock
   }
 
-
   function increaseCounter(){
-    if(props.breakTime === 60){
+    if(props.longBreakTime === 60){
       return;
     }
-    props.increaseBreak(); //criado em PomodoroClock
+    props.increaseLongBreak(); //criado em PomodoroClock
   }
 
   return (
@@ -28,8 +25,8 @@ function BreakTime(props) {
         Down
       </button>
 
-      {/* valor do short break em si */}
-      <p>{props.breakTime}</p>
+      {/* valor do long break em si */}
+      <p>{props.longBreakTime}</p>
 
       {/* botão para aumentar o valor */}
       <button 
@@ -37,9 +34,8 @@ function BreakTime(props) {
         onClick={increaseCounter}>
         Up
       </button>
-
     </section>
   );
 }
 
-export default BreakTime;
+export default LongBreakTime;
