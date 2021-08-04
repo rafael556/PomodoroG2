@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+let contador = 1;
 //RELÓGIO PRINCIPAL
 class Timer extends React.Component {
 
@@ -22,6 +22,8 @@ class Timer extends React.Component {
 
   //fazer o relógio começar a rodar
   playTimer(){
+    contador = contador +1;
+    //console.log(contador);
     let intervalId = setInterval(this.decreaseTimer, 1000);
     this.props.onPlayStopTimer(true);
     this.setState({
@@ -43,16 +45,24 @@ class Timer extends React.Component {
               isSession: false //intervalo
             });
 
-            //trocar de tarefas para intervalo
-            this.props.toggleInterval(this.state.isSession);
-
-          }else{
+            if(contador===6){ 
+              //trocar de tarefas para intervalo
+              this.props.toggleInterval2(this.state.isSession);
+              contador = 0;
+            }else{
+              this.props.toggleInterval(this.state.isSession);
+              contador = contador +1;
+              //console.log(contador);
+            }
+        }else{
             this.setState({
               isSession: true //sessão de tarefas
             });
 
             //trocar de intervalo para tarefas
             this.props.toggleInterval(this.state.isSession);
+            contador = contador +1;
+            //console.log(contador);
           }
         }else{
           this.props.updateTimerMinute(); //diminuir o minuto em 1
@@ -93,8 +103,15 @@ class Timer extends React.Component {
   //pular o tempo
   skipTimer(){
     this.stopTimer();
-    this.props.skipTimer(this.state.isSession); //criado em PomodoroClock
+    if(contador===6){
+      this.props.skipTimer2(this.state.isSession); //criado em PomodoroClock
+      contador = 0;
+    }
+    else{
+      this.props.skipTimer(this.state.isSession);
+    }
     this.props.onPlayStopTimer(false); //criado em PomodoroClock
+    
     this.setState({
       timerSecond: 0,
       isSession: !this.state.isSession //mudar a parte de identificação, se é uma tarefa ou um intervalo
@@ -108,7 +125,7 @@ class Timer extends React.Component {
         <section className="timer">
 
           {/* identificar se está durante uma tarefa ou intervalo */}
-          <h4>{this.state.isSession === true ? "Tarefa" : "Short Break"}</h4>
+          <h4>{this.state.isSession === true ? "Tarefa" : "Intervalo"}</h4>
 
           {/* relógio */}
           <div className="clock">
