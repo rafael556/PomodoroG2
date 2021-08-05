@@ -98,7 +98,7 @@
 
 /* LISTA DE TAREFAS */
 .todo-list {
-  height: 165px;
+  height: 130px;
   max-height: 165px;
   overflow-y: auto;
   word-break:break-all;

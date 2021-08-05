@@ -27,7 +27,6 @@ class PomodoroClock extends React.Component {
     this.onToggleInterval = this.onToggleInterval.bind(this);
     this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this);
     this.onPlayStopTimer = this.onPlayStopTimer.bind(this);
-    this.onResetTimer = this.onResetTimer.bind(this);
     this.skipTimer = this.skipTimer.bind(this);
     this.skipTimer2 = this.skipTimer2.bind(this);
     this.onToggleInterval2 = this.onToggleInterval2.bind(this);
@@ -126,14 +125,6 @@ class PomodoroClock extends React.Component {
     }
   }
 
-  //resetar o tempo já passado
-  onResetTimer(){
-    this.setState({
-      timerMinute: this.state.sessionLength
-    });
-  }
-
-
   //parar o tempo que está rodando
   onPlayStopTimer(isPlay){
     this.setState({
@@ -197,7 +188,6 @@ class PomodoroClock extends React.Component {
           updateTimerMinute={this.onUpdateTimerMinute}
           toggleInterval={this.onToggleInterval}
           onToggleInterval2={this.onToggleInterval2}
-          resetTimer={this.onResetTimer}
           onPlayStopTimer={this.onPlayStopTimer}
           skipTimer={this.skipTimer}
           skipTimer2={this.skipTimer2}

@@ -3,12 +3,13 @@ import React from 'react';
 import Alarm from '../audio/alarm.mp4';
 import {Howl, Howler} from "howler";
 
+
+
+let contador = 1; //controlar a quantidade de tarefas até o long break
 //som de tarefa/intervalo finalizado
 var sound = new Howl({
   src: Alarm
 });
-
-let contador = 1; //controlar a quantidade de tarefas até o long break
 //RELÓGIO PRINCIPAL
 class Timer extends React.Component {
 
@@ -24,7 +25,6 @@ class Timer extends React.Component {
 
     this.playTimer = this.playTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
-    this.resetTimer = this.resetTimer.bind(this);
     this.skipTimer = this.skipTimer.bind(this);
     this.decreaseTimer = this.decreaseTimer.bind(this);
   }
@@ -50,7 +50,7 @@ class Timer extends React.Component {
       //se o valor dos minutos for zero
         if(this.props.timerMinute === 0){
           sound.play(); //toda vez que o cronômetro zerar o som é tocado
-          
+
           if(this.state.isSession){
             this.setState({
               isSession: false //intervalo
@@ -101,17 +101,6 @@ class Timer extends React.Component {
     this.props.onPlayStopTimer(false); //criado em PomodoroClock
   }
 
-  //resetar o tempo já passado
-  resetTimer(){
-    this.stopTimer();
-    this.props.resetTimer(); //criado em PomodoroClock
-    this.props.onPlayStopTimer(false); //criado em PomodoroClock
-    this.setState({
-      timerSecond: 0,
-      isSession: true
-    });
-  }
-
   //pular o tempo
   skipTimer(){
     this.stopTimer();
@@ -138,7 +127,7 @@ class Timer extends React.Component {
         <section className="timer">
 
           {/* identificar se está durante uma tarefa ou intervalo */}
-          <h4>{this.state.isSession === true ? "Tarefa" : "Intervalo"}</h4>
+          <h4 className="title">{this.state.isSession === true ? "Tarefa" : "Intervalo"}</h4>
 
           {/* relógio */}
           <div className="clock">
@@ -168,7 +157,6 @@ class Timer extends React.Component {
               <button onClick={this.playTimer} className="button-play">Play</button>
               <button onClick={this.stopTimer} className="button-stop">Stop</button>
               <button onClick={this.skipTimer} className="button-skip">Skip</button>
-              <button onClick={this.resetTimer} className="button-refresh">Refresh</button>
         </section>
       </section>
       
