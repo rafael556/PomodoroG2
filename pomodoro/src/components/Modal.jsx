@@ -41,17 +41,17 @@ export default props => {
         <form onSubmit={submitHandler} id="id-pomodoro">
           <div className="formulario">
             <label>Pomodoro</label>
-            <input type="number" onChange={pomo}/>
+            <input type="number" value={pomodoro} onChange={pomo} max="99"/>
           </div>
 
           <div className="formulario">
             <label>Pausa Curta</label>
-            <input type="number" onChange={curta}/>
+            <input type="number" value={pausaCurta} onChange={curta} max="99"/>
           </div>
 
           <div className="formulario">
             <label>Pausa Longa</label>
-            <input type="number" onChange={longa}/>
+            <input type="number" value={pausaLonga} onChange={longa} max="99"/>
           </div>
         </form>
 

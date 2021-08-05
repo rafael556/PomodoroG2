@@ -29,7 +29,7 @@ const Cadastro = () => {
     e.preventDefault()
 
     try {
-      await api.post('/login', {
+      await api.post('/register', {
         username: userCad,
         password: passwordCad
       })
@@ -56,6 +56,7 @@ const Cadastro = () => {
             type="text"
             placeholder="Insira um login..."
             name="cadastroUser"
+            required
             id="cadastroUser"
             onChange={handleUserChange}
           ></input>
@@ -68,6 +69,7 @@ const Cadastro = () => {
             placeholder="Insira uma senha..."
             name="cadastroPassword"
             id="cadastroPassword"
+            required
             onChange={handlePasswordChange}
           ></input>
         </div>
@@ -78,6 +80,7 @@ const Cadastro = () => {
             type="password"
             name="cadastroPasswordCheck"
             id="cadastroPasswordCheck"
+            required
             onChange={handlePasswordConfChange}
           ></input>
         </div>

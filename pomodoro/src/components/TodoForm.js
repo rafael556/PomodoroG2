@@ -40,10 +40,12 @@ function TodoForm({ setInputText, todos, setTodos, inputText, pomo, setPomo }) {
   //Envia as informações do Formulário para o banco
   async function SubmitDBHandler(inputText, pomo) {
     try {
-      await api.post('/tarefas', {
-        Description: inputText,
-        QtdPomo: pomo
-      })
+      await api
+        .post('/tarefas', {
+          Description: inputText,
+          QtdPomo: pomo
+        })
+        .then(response => console.log(response.data))
     } catch (err) {
       console.log('Erro ao admitir elementos')
     }
