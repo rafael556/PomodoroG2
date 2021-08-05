@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import '../styles/Modal.css'
+import api from '../services/api'
 
 export default props => {
   const [pomodoro, setPomodoro] = useState(25)
@@ -16,6 +17,20 @@ export default props => {
     setPausaLonga(e.target.value)
   }
 
+  async function submitHandler(e){
+    e.preventDefault()
+
+    try{
+      await api.post('/modal', {
+        pomodoro: pomo,
+        pausaCurta: pausaCurta,
+        pausaLonga: pausaLonga
+      })
+    } catch(err){
+
+    }
+  }
+
   return(
     <div className="Modal" >
       <div className="Mascara" onClick={() => {props.abertura(false)}}></div>
@@ -23,20 +38,20 @@ export default props => {
         <h1>Configuração</h1>
         <p>Tempo (minutos)</p>
 
-        <form action="" id="id-pomodoro">
+        <form onSubmit={submitHandler} id="id-pomodoro">
           <div className="formulario">
             <label>Pomodoro</label>
-            <input type="number" onChange={pomo}/>
+            <input type="number" value={pomodoro} onChange={pomo} max="99"/>
           </div>
 
           <div className="formulario">
             <label>Pausa Curta</label>
-            <input type="number" onChange={curta}/>
+            <input type="number" value={pausaCurta} onChange={curta} max="99"/>
           </div>
 
           <div className="formulario">
             <label>Pausa Longa</label>
-            <input type="number" onChange={longa}/>
+            <input type="number" value={pausaLonga} onChange={longa} max="99"/>
           </div>
         </form>
 
