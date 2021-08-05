@@ -82,8 +82,14 @@ const Cadastro = () => {
                 <Link to="/login">
                         <button class="cadlogin">Login</button>
                 </Link>
-
             </div>
+
+            <div class='erro'>
+                <h4>Oops x-x</h4>
+                <h5>Ocorreu um erro,</h5>
+                <h5>tente novamente</h5>
+            </div>
+
         </div>
 
         //adicionar form no button login

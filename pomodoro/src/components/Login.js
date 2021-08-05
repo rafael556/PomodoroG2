@@ -69,6 +69,12 @@ const Login = () => {
                 <button class="button cadastrar">Botão pra sair daqui</button>
             </Link>
 
+            <div class='erro'>
+                <h4>Oops x-x</h4>
+                <h5>Ocorreu um erro,</h5>
+                <h5>tente novamente</h5>
+            </div>
+
         </div>
 
     );
