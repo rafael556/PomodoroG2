@@ -19,10 +19,12 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      await api.post('/login', {
-        username: userLogin,
-        password: passwordLogin
-      })
+      await api
+        .post('/login', {
+          username: userLogin,
+          password: passwordLogin
+        })
+        .then(response => console.log(response.data))
     } catch (er) {
       console.log('User not found')
     }
