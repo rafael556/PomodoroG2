@@ -100,7 +100,7 @@ class PomodoroClock extends React.Component {
   }
 
 
-  //mudar da session pro break
+  //mudar da session pro short break
   onToggleInterval(isSession){ 
     if(isSession){ 
       this.setState({
@@ -113,7 +113,7 @@ class PomodoroClock extends React.Component {
     }
   }
 
-  //mudar da session pro break
+  //mudar da session pro long break
   onToggleInterval2(isSession){ 
     if(isSession){ 
       this.setState({
@@ -142,7 +142,7 @@ class PomodoroClock extends React.Component {
   }
 
 
-  //pular o tempo atual
+  //pular o tempo atual: versão short break
   skipTimer(isSession){
     if(isSession===false){
       this.setState({
@@ -155,7 +155,7 @@ class PomodoroClock extends React.Component {
     }
   }
 
-    //pular o tempo atual
+    //pular o tempo atual: bersão long break
     skipTimer2(isSession){
       if(isSession===false){
         this.setState({

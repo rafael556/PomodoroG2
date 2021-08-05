@@ -1,9 +1,18 @@
 import React from 'react';
 
-let contador = 1;
+import Alarm from '../audio/alarm.mp4';
+import {Howl, Howler} from "howler";
+
+//som de tarefa/intervalo finalizado
+var sound = new Howl({
+  src: Alarm
+});
+
+let contador = 1; //controlar a quantidade de tarefas até o long break
 //RELÓGIO PRINCIPAL
 class Timer extends React.Component {
 
+  
   constructor(){
     super();
 
@@ -40,16 +49,19 @@ class Timer extends React.Component {
 
       //se o valor dos minutos for zero
         if(this.props.timerMinute === 0){
+          sound.play(); //toda vez que o cronômetro zerar o som é tocado
+          
           if(this.state.isSession){
             this.setState({
               isSession: false //intervalo
             });
 
-            if(contador===6){ 
+            if(contador===6){ //quando as 3 tarefas forem realizadas o próximo intervalo seria o long break
               //trocar de tarefas para intervalo
               this.props.toggleInterval2(this.state.isSession);
               contador = 0;
-            }else{
+              
+            }else{ //caso as 3 tarefas não estiverem completas seria o short break
               this.props.toggleInterval(this.state.isSession);
               contador = contador +1;
               //console.log(contador);
@@ -103,11 +115,11 @@ class Timer extends React.Component {
   //pular o tempo
   skipTimer(){
     this.stopTimer();
-    if(contador===6){
+    if(contador===6){ //quando as 3 tarefas forem realizadas o próximo intervalo seria o long break
       this.props.skipTimer2(this.state.isSession); //criado em PomodoroClock
       contador = 0;
     }
-    else{
+    else{ //caso as 3 tarefas não estiverem completas seria o short break
       this.props.skipTimer(this.state.isSession);
     }
     this.props.onPlayStopTimer(false); //criado em PomodoroClock
@@ -120,6 +132,7 @@ class Timer extends React.Component {
   }
 
   render(){
+    Howler.volume(1.0);
     return (
       <section className="clock-container">
         <section className="timer">
