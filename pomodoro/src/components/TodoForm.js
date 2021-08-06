@@ -68,7 +68,7 @@ function TodoForm({ setInputText, todos, setTodos, inputText, pomo, setPomo }) {
           type="number"
           name="pomo-num"
           id="pomo-num"
-          placeholder="ex: 1pom."
+          placeholder="ex: 1 pom."
           min="1"
         />
       </div>

@@ -17,25 +17,28 @@ function SessionTime(props) {
   }
 
   return (
-    <section className="session">
+    <section className="control-container">
+        <p>Session Time</p>
+        <div className="control">
+          {/* botão para diminuir o valor */}
+          <button 
+            className="btn"
+            disabled={props.isPlay === true ? "disabled" : ""}
+            onClick={decreaseSession}>
+            Down
+          </button>
 
-      {/* botão para diminuir o valor */}
-      <button 
-        disabled={props.isPlay === true ? "disabled" : ""}
-        onClick={decreaseSession}>
-        Down
-      </button>
+          {/* valor do tempo de tarefa em si */}
+          <p>{props.sessionTime}</p>
 
-      {/* valor do tempo de tarefa em si */}
-      <p>{props.sessionTime}</p>
-
-      {/* botão para aumentar o valor */}
-      <button 
-        disabled={props.isPlay === true ? "disabled" : ""}
-        onClick={increaseSession}>
-        Up
-      </button>
-
+          {/* botão para aumentar o valor */}
+          <button 
+            className="btn"
+            disabled={props.isPlay === true ? "disabled" : ""}
+            onClick={increaseSession}>
+            Up
+          </button>
+        </div>
     </section>
   );
 }

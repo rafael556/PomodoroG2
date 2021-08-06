@@ -3,6 +3,7 @@ import React from 'react';
 import BreakTime from './BreakTime';
 import SessionTime from './SessionTime';
 import LongBreakTime from './LongBreakTime';
+
 import Timer from './Timer';
 import '../styles/Clock.css';
 
@@ -162,6 +163,7 @@ class PomodoroClock extends React.Component {
   render(){
     return (
       <div>
+      <div id="wrapper">
         <BreakTime 
           isPlay={this.state.isPlay}
           breakTime={this.state.breakLength} 
@@ -181,8 +183,9 @@ class PomodoroClock extends React.Component {
           increaseLongBreak={this.onIncreaseLongBreakLength}
           decreaseLongBreak={this.onDecreaseLongBreakLength}
         />
-
-        <Timer 
+      </div>
+       
+      <Timer 
           timerMinute={this.state.timerMinute} 
           breakLength={this.state.breakLength}
           updateTimerMinute={this.onUpdateTimerMinute}

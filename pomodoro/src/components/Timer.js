@@ -57,6 +57,7 @@ class Timer extends React.Component {
             });
 
             if(contador===6){ //quando as 3 tarefas forem realizadas o próximo intervalo seria o long break
+
               //trocar de tarefas para intervalo
               this.props.toggleInterval2(this.state.isSession);
               contador = 0;

@@ -16,24 +16,30 @@ function LongBreakTime(props) {
   }
 
   return (
-    <section className="break">
+    <section className="control-container">
+      
+        <p>Long Break Time</p>
 
-      {/* botão para diminuir o valor */}
-      <button 
-        disabled={props.isPlay === true ? "disabled" : ""}
-        onClick={decreaseCounter}>
-        Down
-      </button>
+        <div className="control">
+          {/* botão para diminuir o valor */}
+          <button 
+            className="btn"
+            disabled={props.isPlay === true ? "disabled" : ""}
+            onClick={decreaseCounter}>
+            Down
+          </button>
 
-      {/* valor do long break em si */}
-      <p>{props.longBreakTime}</p>
+          {/* valor do long break em si */}
+          <p>{props.longBreakTime}</p>
 
-      {/* botão para aumentar o valor */}
-      <button 
-        disabled={props.isPlay === true ? "disabled" : ""}
-        onClick={increaseCounter}>
-        Up
-      </button>
+          {/* botão para aumentar o valor */}
+          <button 
+            className="btn"
+            disabled={props.isPlay === true ? "disabled" : ""}
+            onClick={increaseCounter}>
+            Up
+          </button>
+        </div>
     </section>
   );
 }

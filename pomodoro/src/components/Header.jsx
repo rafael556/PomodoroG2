@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, {useState} from 'react'
 import '../styles/Header.css'
 import logo from '../assets/Logo-Tomate Vermelho.svg'

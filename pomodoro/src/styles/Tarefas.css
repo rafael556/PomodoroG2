@@ -16,14 +16,6 @@
   height: 492px;
 }
 
-.timer img{
-  position: absolute;
-  width: 249px;
-  height: 180px;
-  left: 555px;
-  top: 130px;
-}
-
 .Tarefas {
   width: 50%; 
   display: flex;
@@ -98,7 +90,7 @@
 
 /* LISTA DE TAREFAS */
 .todo-list {
-  height: 130px;
+  height: 140px;
   max-height: 165px;
   overflow-y: auto;
   word-break:break-all;

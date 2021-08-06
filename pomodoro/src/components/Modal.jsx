@@ -1,6 +1,8 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, {useState} from 'react'
 import '../styles/Modal.css'
 import api from '../services/api'
+
 
 export default props => {
   const [pomodoro, setPomodoro] = useState(25)
