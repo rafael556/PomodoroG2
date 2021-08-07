@@ -3,17 +3,16 @@ import React from 'react';
 import Alarm from '../audio/alarm.mp4';
 import {Howl, Howler} from "howler";
 
-
-
 let contador = 1; //controlar a quantidade de tarefas até o long break
+
 //som de tarefa/intervalo finalizado
 var sound = new Howl({
   src: Alarm
 });
-//RELÓGIO PRINCIPAL
+
+
 class Timer extends React.Component {
 
-  
   constructor(){
     super();
 
@@ -105,19 +104,23 @@ class Timer extends React.Component {
   //pular o tempo
   skipTimer(){
     this.stopTimer();
+
     if(contador===6){ //quando as 3 tarefas forem realizadas o próximo intervalo seria o long break
       this.props.skipTimer2(this.state.isSession); //criado em PomodoroClock
       contador = 0;
     }
+
     else{ //caso as 3 tarefas não estiverem completas seria o short break
       this.props.skipTimer(this.state.isSession);
     }
+
     this.props.onPlayStopTimer(false); //criado em PomodoroClock
     
     this.setState({
       timerSecond: 0,
       isSession: !this.state.isSession //mudar a parte de identificação, se é uma tarefa ou um intervalo
     });
+    
     this.playTimer(); //rodar automaticamente após pular
   }
 

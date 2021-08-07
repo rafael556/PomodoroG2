@@ -5,9 +5,22 @@ import api from '../services/api'
 
 
 export default props => {
-  const [pomodoro, setPomodoro] = useState(25)
-  const [pausaCurta, setPausaCurta] = useState(5)
-  const [pausaLonga, setPausaLonga] = useState(15)
+  const [pomodoro, setPomodoro] = useState(localStorage.getItem('pomodoro'))
+  const [pausaCurta, setPausaCurta] = useState(localStorage.getItem('pausaCurta'))
+  const [pausaLonga, setPausaLonga] = useState(localStorage.getItem('pausaLonga'))
+
+  const armazenar = (chave, valor) => {
+    localStorage.setItem(chave,valor);
+  }
+
+  function salvar(){
+    armazenar('pomodoro', pomodoro);
+    armazenar('pausaCurta', pausaCurta);
+    armazenar('pausaLonga', pausaLonga);
+    
+    // eslint-disable-next-line no-lone-blocks
+    {props.abertura(false)}
+  }
 
   function pomo(e){
     setPomodoro(e.target.value)
@@ -43,21 +56,26 @@ export default props => {
         <form onSubmit={submitHandler} id="id-pomodoro">
           <div className="formulario">
             <label>Pomodoro</label>
-            <input type="number" value={pomodoro} onChange={pomo} max="99"/>
+            <input type="number" value={pomodoro} onChange={pomo} max="99" min="1"/>
           </div>
 
           <div className="formulario">
             <label>Pausa Curta</label>
-            <input type="number" value={pausaCurta} onChange={curta} max="99"/>
+            <input type="number" value={pausaCurta} onChange={curta} max="99" min="1"/>
           </div>
 
           <div className="formulario">
             <label>Pausa Longa</label>
-            <input type="number" value={pausaLonga} onChange={longa} max="99"/>
+            <input type="number" value={pausaLonga} onChange={longa} max="99" min="1"/>
           </div>
         </form>
 
-        <button type="submit" form="id-pomodoro">Salvar</button>
+        <button 
+          type="submit" 
+          form="id-pomodoro" 
+          onClick={salvar}
+        >Salvar</button>
+
       </div>
     </div>
   )
