@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 
+/* RELÓGIO */
 .clock-container {
-  width:280px;
-  height: 255px;
+  width:270px;
+  height: 220px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -15,28 +16,31 @@
   justify-content: center;
   background-image: url(../assets/tomatinho\ vermelho.svg);
   background-repeat: no-repeat;
-  background-size: 280px;
-  margin-bottom: -209px;
-  margin-top: -10px;
+  background-size: 270px;
+  margin-bottom: -190px;
+  margin-top: -20px;  
 }
 
+/* SESSÃO/INTERVALO */
 .title {
   font-weight: 400;
   font-size: 18px;
   font-style: italic;
   color: white;
   text-align: center;
-  margin-left: -8px;
-  margin-top: -18px;
+  margin-left: -6px;
+  margin-top: 12px;
   margin-bottom: 60px;
 }
 
+/* RELÓGIO EM SI */
 .clock {
   margin-top: -10px;
   font-size: 45px;
   font-weight: 500;
 }
 
+/* BOTÕES DE PLAY, STOP E SKIP */
 .timer button {
   margin: 5px;
   width: 55px;
@@ -64,11 +68,6 @@
   color: white;
 }
 
-.button-refresh {
-  background-color: rgb(78, 78, 202);
-  color: white;
-}
-
 .button-play:hover {
   background-color: rgb(56, 128, 56);
 }
@@ -81,43 +80,3 @@
   background-color: rgb(218, 142, 2);
 }
 
-.button-refresh:hover {
-  background-color: rgb(63, 63, 160);
-}
-
-.control-container {
-  background-color: rgba(162, 162, 162, 0.296);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 15px;
-  font-size: 13px;
-}
-
-#wrapper {
-  height: 0px;
-  margin-left: 300px;
-  margin-bottom: -47px;
-  margin-top: 40px;
-}
-
-.control {
-  display: flex;
-  width: 160px;
-  align-items: center;
-  justify-content:space-around;
-  margin-left: 10px;
-}
-
-.btn {
-  background-color: rgb(120, 120, 228);
-  color: white;
-}
-
-.btn:hover {
-  background-color: rgb(96, 96, 184);
-}
-
-.btn:disabled {
-  cursor: not-allowed;
-}

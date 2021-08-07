@@ -18,8 +18,8 @@ export default props => {
     armazenar('pausaCurta', pausaCurta);
     armazenar('pausaLonga', pausaLonga);
     
-    // eslint-disable-next-line no-lone-blocks
-    {props.abertura(false)}
+    props.abertura(false)
+    document.location.reload(true);
   }
 
   function pomo(e){
