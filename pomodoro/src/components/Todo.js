@@ -1,33 +1,34 @@
-import React from 'react';
+import React from 'react'
+import api from './../services/api'
 
-function Todo({ text, todo, todos, setTodos, num }) {
-  
+function Todo({ list, create, setCreate }) {
   //deletar tarefa
-  const deleteHandler = () => {
-    setTodos(todos.filter(el => el.id !== todo.id));
-  };
+  const deleteHandler = async e => {
+    await e.preventDefault()
+
+    await api.delete(`/tarefas/${list._id}`)
+    await setCreate(!create)
+  }
 
   //tarefa completa
-  const completeHandler = () => {
-    setTodos(todos.map(item => {
-      if(item.id === todo.id){
-        return{
-          ...item,
-          completed: !item.completed,
-        }
-      }
-      return item;
-    }))
-  };
+  const completeHandler = async e => {
+    await e.preventDefault()
+    await api.put(`/tarefas/${list._id}`, {
+      completed: !list.completed
+    })
+    await setCreate(!create)
+  }
 
   return (
-    <div className="todo">
-
+    <div className="todo" key={list._id}>
       {/* cada item lista */}
-      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-        {text}
+      <li
+        key={list._id}
+        className={`todo-item ${list.completed ? 'completed' : ''}`}
+      >
+        {list.Description}
       </li>
-      
+
       {/* botões de cada item */}
       <button onClick={completeHandler} className="complete-btn">
         <i className="fas fa-check"></i>
@@ -39,10 +40,13 @@ function Todo({ text, todo, todos, setTodos, num }) {
 
       {/* mostrar quantidade de pomodoros */}
       <div className="quant-pomo">
-        <li>{num} <br />pom.</li>
+        <li>
+          {list.QtdPomo} <br />
+          pom.
+        </li>
       </div>
     </div>
-  );
+  )
 }
 
-export default Todo;
+export default Todo

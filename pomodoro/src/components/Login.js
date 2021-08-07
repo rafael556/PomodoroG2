@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../services/api'
 
 import '../styles/Login.css'
 
 const Login = () => {
-  const [userLogin, setUserLogin] = React.useState('')
-  const [passwordLogin, setPasswordLogin] = React.useState('')
+  const [userLogin, setUserLogin] = useState('')
+  const [passwordLogin, setPasswordLogin] = useState('')
 
   function handleUserChange(e) {
     setUserLogin(`${e.target.value}`)
