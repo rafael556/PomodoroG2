@@ -12,7 +12,7 @@ exports.createTask = async (req, res) => {
 
 exports.listTask = async (req, res) => {
   try{
-    const task = await Tarefa.find({}).populate('user')
+    const task = await Tarefa.find({user: req.userId}).populate('user')
     return res.json(task)
 
   } catch(err) {

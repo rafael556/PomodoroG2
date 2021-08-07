@@ -6,6 +6,7 @@ function Todo({ list, create, setCreate }) {
   const deleteHandler = async e => {
     await e.preventDefault()
 
+    //deleta e altera o estado de create recarregando a página como consequencia
     await api.delete(`/tarefas/${list._id}`)
     await setCreate(!create)
   }
@@ -14,6 +15,7 @@ function Todo({ list, create, setCreate }) {
   const completeHandler = async e => {
     await e.preventDefault()
     await api.put(`/tarefas/${list._id}`, {
+      //atualiza o estado da tarefa
       completed: !list.completed
     })
     await setCreate(!create)

@@ -12,10 +12,10 @@ routes.get('/teste', userController.teste)
 //pega os dados enviados dos formulários de cadastro e registra no banco
 routes.post('/cadastro', userController.register)
 
-routes.use(authMiddleware)
-
 //autenticação do login
 routes.post('/login', userController.authenticate)
+
+routes.use(authMiddleware)
 
 //faz update dos valores padrões do modal
 routes.put('/modal/:id', userController.updateUser)

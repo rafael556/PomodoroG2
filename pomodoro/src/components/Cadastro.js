@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../services/api'
 
 import '../styles/Cadastro.css'
 
 const Cadastro = () => {
-  const [userCad, setUserCad] = React.useState('')
-  const [passwordCad, setPasswordCad] = React.useState('')
-  const [passwordConfCad, setPasswordConfCad] = React.useState('')
+  const [userCad, setUserCad] = useState('')
+  const [passwordCad, setPasswordCad] = useState('')
+  const [passwordConfCad, setPasswordConfCad] = useState('')
 
   function handleUserChange(e) {
-    setUserCad(`${e.target.value}`)
+    setUserCad(e.target.value)
+    console.log(userCad)
   }
 
   function handlePasswordChange(e) {
-    setPasswordCad(`${e.target.value}`)
+    setPasswordCad(e.target.value)
   }
 
   function handlePasswordConfChange(e) {
-    setPasswordConfCad(`${e.target.value}`)
+    setPasswordConfCad(e.target.value)
   }
 
   if (passwordCad === passwordConfCad) {
@@ -27,14 +28,21 @@ const Cadastro = () => {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    console.log(userCad)
+    console.log(passwordCad)
+    console.log(passwordConfCad)
 
-    try {
-      await api.post('/cadastro', {
-        username: userCad,
-        password: passwordCad
-      })
-    } catch (er) {
-      console.log('User not found')
+    if (passwordCad === passwordConfCad) {
+      try {
+        await api.post('/cadastro', {
+          name: userCad,
+          password: passwordCad
+        })
+      } catch (er) {
+        console.log('fail')
+      }
+    } else {
+      alert('Senhas incompatíveis')
     }
 
     setUserCad('')
@@ -45,7 +53,7 @@ const Cadastro = () => {
   return (
     //parte de cadastro
     <div className="cadastro">
-      <form className="cadastro" onChange={handleSubmit}>
+      <form className="cadastro">
         <div>
           <h1>Cadastro</h1>
         </div>
@@ -55,7 +63,7 @@ const Cadastro = () => {
           <input
             type="text"
             placeholder="Insira um login..."
-            name="cadastroUser"
+            // name="cadastroUser"
             required
             id="cadastroUser"
             onChange={handleUserChange}
@@ -67,7 +75,7 @@ const Cadastro = () => {
           <input
             type="password"
             placeholder="Insira uma senha..."
-            name="cadastroPassword"
+            // name="cadastroPassword"
             id="cadastroPassword"
             required
             onChange={handlePasswordChange}
@@ -78,7 +86,7 @@ const Cadastro = () => {
           <h2>Confirme sua senha</h2>
           <input
             type="password"
-            name="cadastroPasswordCheck"
+            // name="cadastroPasswordCheck"
             id="cadastroPasswordCheck"
             required
             onChange={handlePasswordConfChange}
@@ -86,7 +94,7 @@ const Cadastro = () => {
         </div>
 
         <div>
-          <button class="enter" type="submit">
+          <button class="enter" type="submit" onClick={handleSubmit}>
             Cadastrar
           </button>
         </div>

@@ -24,6 +24,7 @@ const TodoForm = props => {
         Description: inputText,
         QtdPomo: pomo
       })
+      //modifica o estado para recarregar a lista de elementos
       props.setCreate(!props.create)
     } catch (err) {
       console.log('Erro ao admitir elementos')
@@ -40,6 +41,7 @@ const TodoForm = props => {
       //caso a pessoa não escolha a quantidade de pomodoros
       alert('Escolha a quantidade de pomodoros para esta tarefa')
     } else {
+      //chamada para a função que envia os dados para o banco
       SubmitDBHandler(text, pomo)
 
       setText('')
@@ -68,11 +70,7 @@ const TodoForm = props => {
           min="1"
         />
       </div>
-      <button
-        onClick={submitTodoHandler}
-        classNameName="todo-button"
-        type="submit"
-      >
+      <button onClick={submitTodoHandler} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
       </button>
     </form>

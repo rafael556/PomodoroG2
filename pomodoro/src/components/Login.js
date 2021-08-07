@@ -8,6 +8,7 @@ const Login = () => {
   const [userLogin, setUserLogin] = useState('')
   const [passwordLogin, setPasswordLogin] = useState('')
 
+  //consertar os handlers que não estão apagando o valor
   function handleUserChange(e) {
     setUserLogin(`${e.target.value}`)
   }
@@ -16,15 +17,26 @@ const Login = () => {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    await e.preventDefault()
 
     try {
       await api
         .post('/login', {
-          username: userLogin,
+          name: userLogin,
           password: passwordLogin
         })
-        .then(response => console.log(response.data))
+        .then(response => {
+          const {
+            data: { token }
+          } = response
+
+          console.log(response.data.token)
+
+          //coloca o token no localStorage da aplicação
+          localStorage.setItem('token', JSON.stringify(token))
+          //determina que todas as rotas em diante terão o token no header para autorização
+          api.defaults.headers.Authorization = `Bearer ${token}`
+        })
     } catch (er) {
       console.log('User not found')
     }
