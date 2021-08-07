@@ -18,7 +18,7 @@ routes.post('/login', userController.authenticate)
 routes.use(authMiddleware)
 
 //faz update dos valores padrões do modal
-routes.put('/modal/:id', userController.updateUser)
+routes.put('/modal/', userController.updateUser)
 
 //listar todas
 routes.get('/tarefas', taskController.listTask)

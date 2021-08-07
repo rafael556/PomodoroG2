@@ -26,7 +26,12 @@ function TodoList(props) {
         {/* para cada todo teremos um componente Todo */}
         {lista.map(list => (
           //passa create para a mudança de estado e recarregamento nos botões da aplicação
-          <Todo list={list} create={props.create} setCreate={props.setCreate} />
+          <Todo
+            list={list}
+            create={props.create}
+            setCreate={props.setCreate}
+            key={list._id}
+          />
         ))}
       </ul>
     </div>

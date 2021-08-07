@@ -64,7 +64,7 @@ exports.teste = async(req, res) => {
 
 exports.updateUser = async (req, res) => {
   try{
-    const user = await User.findByIdAndUpdate(req.params.id, req.body)
+    const user = await User.findByIdAndUpdate(req.userId, req.body)
     return res.json(user)
   }catch(err){
     return res.status(400).send({error: 'failed to update user'})
