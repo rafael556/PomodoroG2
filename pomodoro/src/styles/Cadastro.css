@@ -77,6 +77,26 @@
   border-radius: 14px;
 }
 
+.cadastro .disabled {
+  width: 449px;
+  height: 44px;
+
+  background:#aac4ee;
+  border-radius: 10px;
+
+  cursor: auto;
+
+  text-align: center;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.038em;
+  
+  color: #ffffff;
+}
 
 .cadastro .enter {
   width: 449px;
@@ -141,21 +161,23 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-.cadastro .erro {
-  position: absolute;
+.cadastro .comErro {
+  position: fixed;
   width: 207px;
   height: 145px;
   left: 183px;
-
-  /* esse top faz com que a página tenha rolamento se ficar igual ao do figma (670) */
-  top: 640px;
+  bottom: 0;
 
   background: rgba(255, 0, 0, 0.15);
-  border-radius: 23px;
+  border-radius: 23px 23px 0 0;
 
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.cadastro .semErro{
+  display: none;
 }
 
 .cadastro h4 {

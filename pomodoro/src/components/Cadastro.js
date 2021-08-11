@@ -1,51 +1,84 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import api from '../services/api'
 
 import '../styles/Cadastro.css'
 
 const Cadastro = () => {
-  const [userCad, setUserCad] = React.useState('')
-  const [passwordCad, setPasswordCad] = React.useState('')
-  const [passwordConfCad, setPasswordConfCad] = React.useState('')
+  const [userCad, setUserCad] = useState('')
+  const [passwordCad, setPasswordCad] = useState('')
+  const [passwordConfCad, setPasswordConfCad] = useState('')
+  const [buttonAuth, setButtonAuth] = useState(false)
+  const [formError, setFormError] = useState(false)
+  let history = useHistory()
 
   function handleUserChange(e) {
-    setUserCad(`${e.target.value}`)
+    setUserCad(e.target.value)
   }
 
   function handlePasswordChange(e) {
-    setPasswordCad(`${e.target.value}`)
+    setPasswordCad(e.target.value)
   }
 
   function handlePasswordConfChange(e) {
-    setPasswordConfCad(`${e.target.value}`)
+    setPasswordConfCad(e.target.value)
   }
 
-  if (passwordCad === passwordConfCad) {
-    //tem q por on onchange para liberar o cadastro
-  }
+  //magia negra, não toque
+  useEffect(() => {
+    const handleForm = () => {
+      if (userCad !== '' && passwordCad !== '' && passwordConfCad !== '') {
+        if (passwordCad === passwordConfCad) {
+          setButtonAuth(true)
+        }
+      } else if (
+        userCad === '' ||
+        passwordCad === '' ||
+        passwordConfCad === ''
+      ) {
+        setButtonAuth(false)
+      }
+      console.log(userCad)
+      console.log(passwordCad)
+      console.log(passwordConfCad)
+    }
+    handleForm()
+  }, [userCad, passwordCad, passwordConfCad])
 
   async function handleSubmit(e) {
     e.preventDefault()
 
     try {
-      await api.post('/cadastro', {
-        username: userCad,
-        password: passwordCad
-      })
-    } catch (er) {
-      console.log('User not found')
-    }
+      await api
+        .post('/cadastro', {
+          name: userCad,
+          password: passwordCad
+        })
+        .then(response => {
+          const {
+            data: { token }
+          } = response
+          //coloca o token no localStorage da aplicação
+          localStorage.setItem('token', JSON.stringify(token))
+          //determina que todas as rotas em diante terão o token no header para autorização
+          api.defaults.headers.Authorization = `Bearer ${token}`
 
-    setUserCad('')
-    setPasswordCad('')
-    setPasswordConfCad('')
+          setFormError(false)
+          setPasswordCad('')
+          setPasswordConfCad('')
+          setUserCad('')
+          history.push('/tarefas')
+        })
+    } catch (er) {
+      console.log('Usuário ou senha incompatível')
+      setFormError(true)
+    }
   }
 
   return (
     //parte de cadastro
     <div className="cadastro">
-      <form className="cadastro" onChange={handleSubmit}>
+      <form className="cadastro">
         <div>
           <h1>Cadastro</h1>
         </div>
@@ -55,8 +88,8 @@ const Cadastro = () => {
           <input
             type="text"
             placeholder="Insira um login..."
-            name="cadastroUser"
             required
+            value={userCad}
             id="cadastroUser"
             onChange={handleUserChange}
           ></input>
@@ -67,8 +100,8 @@ const Cadastro = () => {
           <input
             type="password"
             placeholder="Insira uma senha..."
-            name="cadastroPassword"
             id="cadastroPassword"
+            value={passwordCad}
             required
             onChange={handlePasswordChange}
           ></input>
@@ -78,15 +111,20 @@ const Cadastro = () => {
           <h2>Confirme sua senha</h2>
           <input
             type="password"
-            name="cadastroPasswordCheck"
             id="cadastroPasswordCheck"
+            value={passwordConfCad}
             required
             onChange={handlePasswordConfChange}
           ></input>
         </div>
 
         <div>
-          <button class="enter" type="submit">
+          <button
+            className={`${buttonAuth ? ' enter' : ' disabled'}`}
+            type="submit"
+            onClick={handleSubmit}
+            disabled={!buttonAuth}
+          >
             Cadastrar
           </button>
         </div>
@@ -95,12 +133,12 @@ const Cadastro = () => {
       <div>
         <h3>Já possui conta?</h3>
 
-        <Link to="/login">
-          <button class="cadlogin">Login</button>
+        <Link to="/">
+          <button className="cadlogin">Login</button>
         </Link>
       </div>
 
-      <div class="erro">
+      <div className={`${formError ? 'comErro' : 'semErro'}`}>
         <h4>Oops x-x</h4>
         <h5>Ocorreu um erro,</h5>
         <h5>tente novamente</h5>

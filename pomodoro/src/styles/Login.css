@@ -77,6 +77,26 @@
   border-radius: 14px;
 }
 
+.login .disabled{
+  background-color: #aac4ee;
+  cursor: auto;
+  color: #ffffff;
+  width: 449px;
+  height: 44px;
+
+  border-radius: 10px;
+  border: none;
+
+  text-align: center;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.038em;
+}
+
 .login .enter {
   color: #ffffff;
 
@@ -140,21 +160,21 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-.login .erro {
-  position: absolute;
+.login .erroAparece {
+  position: fixed;
   width: 207px;
-  height: 145px;
+  height: 110px;
   left: 183px;
-
-  /* esse top faz com que a página tenha rolamento se ficar igual ao do figma (670) */
-  top: 640px;
-
+  bottom: 0;
   background: rgba(255, 0, 0, 0.15);
-  border-radius: 23px;
-
+  border-radius: 23px 23px 0 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.login .erroSome{
+  display: none;
 }
 
 .login h4 {
