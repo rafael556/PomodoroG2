@@ -25,7 +25,6 @@ const PomodoroClock = (props) => {
   }
   ,[])
 
-
     //atualizar o tempo
     function onUpdateTimerMinute(){
       setTimerMinute(timerMinute - 1)

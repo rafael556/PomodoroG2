@@ -1,4 +1,5 @@
 import Tarefa from '../models/Tarefa';
+// import User from '../models/User'
 
 exports.createTask = async (req, res) => {
   try{
@@ -13,7 +14,7 @@ exports.createTask = async (req, res) => {
 exports.listTask = async (req, res) => {
   try{
     const task = await Tarefa.find({user: req.userId}).populate('user')
-    return res.json(task)
+    return res.send(task)
 
   } catch(err) {
     return res.status(400).send({error: "Tasks not found"})

@@ -18,7 +18,10 @@ routes.post('/login', userController.authenticate)
 routes.use(authMiddleware)
 
 //faz update dos valores padrões do modal
-routes.put('/modal/', userController.updateUser)
+routes.put('/modal', userController.updateUser)
+
+//recupera os valores do usuário
+routes.get('/modal', userController.getUser)
 
 //listar todas
 routes.get('/tarefas', taskController.listTask)
@@ -30,6 +33,6 @@ routes.post('/tarefas', taskController.createTask)
 routes.put('/tarefas/:id', taskController.updateTask)
 
 //deletar tarefa
-routes.delete('/tarefas/:id',taskController.deleteTask)
+routes.delete('/tarefas/:id', taskController.deleteTask)
 
 export default routes

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import api from '../services/api'
 import Todo from './Todo'
+import { useHistory } from 'react-router-dom';
 
 function TodoList(props) {
   //contem o array dinamico das tarefas
   const [lista, setLista] = useState([])
+  const history = useHistory()
 
   //faz a chamada novamente/recarrega sempre que mudar a variavel create
   useEffect(() => {
@@ -17,6 +19,8 @@ function TodoList(props) {
 
       .catch(err => {
         console.log('Erro')
+        history.push('/')
+
       })
   }, [props.create])
 
