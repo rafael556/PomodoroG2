@@ -4,15 +4,9 @@ import React, { useState } from 'react'
 import '../styles/Tarefas.css'
 
 //importando componentes
-<<<<<<< HEAD
-import TodoForm from '../components/TodoForm';
-import TodoList from '../components/TodoList';
-import PomodoroClock from '../components/PomodoroClock';
-=======
 import TodoForm from '../components/TodoForm'
 import TodoList from '../components/TodoList'
 import PomodoroClock from '../components/PomodoroClock'
->>>>>>> main
 
 function Tarefas() {
   const [create, setCreate] = useState(false)

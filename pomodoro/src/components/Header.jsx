@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 /* eslint-disable import/no-anonymous-default-export */
 import React, {useState} from 'react'
-=======
-import React, { useState } from 'react'
->>>>>>> main
+
 import '../styles/Header.css'
 import logo from '../assets/Logo-Tomate Vermelho.svg'
 import engrenagem from '../assets/Engrenagem.svg'
