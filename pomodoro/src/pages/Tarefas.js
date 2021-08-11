@@ -6,7 +6,7 @@ import '../styles/Tarefas.css'
 //importando componentes
 import TodoForm from '../components/TodoForm'
 import TodoList from '../components/TodoList'
-import Timer from '../assets/timer.svg' //imagem do relógio que será substituída quando o relógio definitivo for feito
+import PomodoroClock from '../components/PomodoroClock'
 
 function Tarefas() {
   const [create, setCreate] = useState(false)
@@ -14,7 +14,9 @@ function Tarefas() {
   return (
     //relógio em si
     <section className="content">
-      <div className="timer">{<img src={Timer} alt="timer" />}</div>
+      <div className="timer">
+        <PomodoroClock />
+      </div>
       <div className="Tarefas">
         <h1>Tarefas</h1>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/Modal.css'
 import api from '../services/api'
 
@@ -17,13 +17,26 @@ export default function Modal(props) {
     setPausaLonga(e.target.value)
   }
 
+  useEffect( () => {
+    try{
+      api.get('/modal').then(response => {
+        const resposta = response.data
+        setPomodoro(resposta.pomodoro)
+        setPausaCurta(resposta.pausaCurta)
+        setPausaLonga(resposta.pausaLonga)
+      })
+    }catch(err){
+      console.log('err')
+    }
+  },[])
+  
   async function submitHandler(e) {
     e.preventDefault()
 
     try {
       await api
         .put('/modal', {
-          pomodoro: pomo,
+          pomodoro: pomodoro,
           pausaCurta: pausaCurta,
           pausaLonga: pausaLonga
         })

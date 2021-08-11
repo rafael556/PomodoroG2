@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* RELÓGIO */
+.clock-container {
+  width: 270px;
+  height: 220px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/tomatinhoVermelho.svg");
+  background-repeat: no-repeat;
+  background-size: 270px;
+  margin-bottom: -190px;
+  margin-top: -20px;
+}
+
+/* SESSÃO/INTERVALO */
+.title {
+  font-weight: 400;
+  font-size: 18px;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  margin-left: -6px;
+  margin-top: 12px;
+  margin-bottom: 60px;
+}
+
+/* RELÓGIO EM SI */
+.clock {
+  margin-top: -10px;
+  font-size: 45px;
+  font-weight: 500;
+}
+
+/* BOTÕES DE PLAY, STOP E SKIP */
+.timer button {
+  margin: 5px;
+  width: 55px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.button-play {
+  background-color: rgb(68, 156, 68);
+  color: white;
+}
+
+.button-stop {
+  background-color: rgb(186, 49, 49);
+  color: white;
+}
+
+.button-skip {
+  background-color: rgb(242, 157, 0);
+  color: white;
+}
+
+.button-play:hover {
+  background-color: rgb(56, 128, 56);
+}
+
+.button-stop:hover {
+  background-color: rgb(134, 35, 35);
+}
+
+.button-skip:hover {
+  background-color: rgb(218, 142, 2);
+}
