@@ -62,17 +62,17 @@ export default function Modal(props) {
         <form onSubmit={submitHandler} id="id-pomodoro">
           <div className="formulario">
             <label>Pomodoro</label>
-            <input type="number" value={pomodoro} onChange={pomo} max="99" />
+            <input type="number" value={pomodoro} onChange={pomo} max="99" min="1" />
           </div>
 
           <div className="formulario">
             <label>Pausa Curta</label>
-            <input type="number" value={pausaCurta} onChange={curta} max="99" />
+            <input type="number" value={pausaCurta} onChange={curta} max="99" min="1" />
           </div>
 
           <div className="formulario">
             <label>Pausa Longa</label>
-            <input type="number" value={pausaLonga} onChange={longa} max="99" />
+            <input type="number" value={pausaLonga} onChange={longa} max="99" min="1" />
           </div>
         </form>
 
