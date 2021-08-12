@@ -31,8 +31,8 @@ const PomodoroClock = (props) => {
     const loadData = async () => {
       await api.get('/modal').then(response => {
         console.log(response.data)
-        setBreakLength(response.data.pausaLonga)
-        setLongBreakLength(response.data.pausaCurta)
+        setBreakLength(response.data.pausaCurta)
+        setLongBreakLength(response.data.pausaLonga)
         setSessionLength(response.data.pomodoro)
         setTimerMinute(response.data.pomodoro)
       })
