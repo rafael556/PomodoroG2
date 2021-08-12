@@ -11,7 +11,6 @@ const Login = () => {
   const [formError, setFormError] = useState(false)
   let history = useHistory()
 
-  // consertar os handlers que não estão apagando o valor
   const handleUserChange = e => {
     setUserLogin(e.target.value)
   }
@@ -101,11 +100,6 @@ const Login = () => {
           <button className="cadastrar">Cadastrar</button>
         </Link>
       </div>
-
-      {/* REMOVER ANTES DE ENTREGAR */}
-      <Link to="/tarefas">
-        <button className="button cadastrar">Botão pra sair daqui</button>
-      </Link>
 
       <div className={`${formError ? 'erroAparece' : 'erroSome'}`}>
         <h4>Oops x-x</h4>

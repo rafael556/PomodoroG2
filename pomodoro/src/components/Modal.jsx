@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/Modal.css'
 import api from '../services/api'
-import { useHistory } from 'react-router-dom';
 
 export default function Modal(props) {
   const [pomodoro, setPomodoro] = useState(25)
@@ -18,19 +17,19 @@ export default function Modal(props) {
     setPausaLonga(e.target.value)
   }
 
-  useEffect( () => {
-    try{
+  useEffect(() => {
+    try {
       api.get('/modal').then(response => {
         const resposta = response.data
         setPomodoro(resposta.pomodoro)
         setPausaCurta(resposta.pausaCurta)
         setPausaLonga(resposta.pausaLonga)
       })
-    }catch(err){
+    } catch (err) {
       console.log('err')
     }
-  },[])
-  
+  }, [])
+
   async function submitHandler(e) {
     e.preventDefault()
 
@@ -42,6 +41,7 @@ export default function Modal(props) {
           pausaLonga: pausaLonga
         })
         .then(response => console.log(response.data))
+
     } catch (err) {
       console.log('failed to update')
     }

@@ -3,8 +3,30 @@ import routes from './routes'
 import cors from 'cors'
 import mongoose from 'mongoose'
 
+//web socket
+const socketio = require("socket.io")
+const http = require('http')
+
 //inicializando o express
 const app = express()
+
+
+//web socket
+const server = http.Server(app)
+
+const io = socketio (server, {
+  cors: {
+      origin: "http://localhost:3000",
+      credentials: true
+    }
+})
+
+function webSocket2(req, res, next) {
+  req.io = io;
+  next();
+}
+
+app.use('*', webSocket2)
 
 //transformando os dados de entrada em json
 app.use(express.json())
@@ -27,7 +49,4 @@ mongoose.connect('mongodb://localhost:27017/pomodorog2',{
  //importação das rotas para utilização
 app.use(routes)
 
-
-app.listen(8080, () => {
-  console.log('Server Running')
-})
+server.listen(8080)

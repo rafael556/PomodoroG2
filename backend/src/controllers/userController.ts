@@ -72,6 +72,7 @@ exports.teste = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     console.log(req.userId)
+    req.io.emit("UPDATE")
     const user = await User.findByIdAndUpdate(req.userId, req.body)
     return res.json(user)
   } catch (err) {
