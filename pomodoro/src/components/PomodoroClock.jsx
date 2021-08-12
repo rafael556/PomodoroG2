@@ -99,6 +99,7 @@ const PomodoroClock = (props) => {
         onPlayStopTimer={onPlayStopTimer}
         skipTimer={skipTimer}
         skipTimer2={skipTimer2}
+        isPlay={isPlay}
       />
     </div>
   )
