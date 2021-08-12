@@ -157,7 +157,7 @@ class Timer extends React.Component {
 
         {/* botões que aparecem embaixo do relógio */}
         <section className="buttons">
-              <button onClick={this.playTimer} className="button-play">Play</button>
+              <button disabled={this.props.isPlay === true ? "disabled" : ""} onClick={this.playTimer} className="button-play">Play</button>
               <button onClick={this.stopTimer} className="button-stop">Stop</button>
               <button onClick={this.skipTimer} className="button-skip">Skip</button>
         </section>

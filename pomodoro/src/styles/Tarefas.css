@@ -17,7 +17,6 @@
 }
 
 .Tarefas {
-  width: 50%; 
   display: flex;
   flex-direction: column;
   margin-top: 200px;
@@ -34,6 +33,7 @@
   border-bottom: 2px solid rgb(206, 206, 206);
   padding: 0 0 5px 0;
   font-weight: 400;
+  margin-top: 20px;
 }
 
 /* PARTE DO INPUT DE TAREFAS */
@@ -90,8 +90,8 @@
 
 /* LISTA DE TAREFAS */
 .todo-list {
-  height: 160px;
-  max-height: 165px;
+  height: 280px;
+  max-height: 280px;
   overflow-y: auto;
   word-break:break-all;
   padding: 5px auto;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import '../styles/Modal.css'
 import api from '../services/api'
 import { useHistory } from 'react-router-dom';
