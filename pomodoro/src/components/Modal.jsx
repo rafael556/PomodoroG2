@@ -26,7 +26,6 @@ export default function Modal(props) {
         setPausaLonga(resposta.pausaLonga)
       })
     } catch (err) {
-      console.log('err')
     }
   }, [])
 
@@ -40,10 +39,7 @@ export default function Modal(props) {
           pausaCurta: pausaCurta,
           pausaLonga: pausaLonga
         })
-        .then(response => console.log(response.data))
-
     } catch (err) {
-      console.log('failed to update')
     }
   }
 

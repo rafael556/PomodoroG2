@@ -25,12 +25,10 @@ const PomodoroClock = (props) => {
     const socket = io("http://localhost:8080", { transport: ['websocket'] });
     socket.on("UPDATE", () => {
       websocket()
-      console.log("YEAH")
     })
 
     const loadData = async () => {
       await api.get('/modal').then(response => {
-        console.log(response.data)
         setBreakLength(response.data.pausaCurta)
         setLongBreakLength(response.data.pausaLonga)
         setSessionLength(response.data.pomodoro)

@@ -12,7 +12,6 @@ exports.register = async (req, res) => {
   try {
     //verifica se o usuário já existe
     const { name } = req.body
-    console.log(req.body)
     if (await User.findOne({ name })) {
       console.log('usuario já existe')
       return res.status(400).send({ error: "Usuario ja existe" })
@@ -71,7 +70,6 @@ exports.teste = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-    console.log(req.userId)
     req.io.emit("UPDATE")
     const user = await User.findByIdAndUpdate(req.userId, req.body)
     return res.json(user)
@@ -83,7 +81,6 @@ exports.updateUser = async (req, res) => {
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.userId)
-    console.log(user)
     return res.json(user)
   } catch (err) {
     return res.status(400).send({ error: 'failed' })

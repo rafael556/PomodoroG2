@@ -13,12 +13,10 @@ function TodoList(props) {
     api
       .get('/tarefas')
       .then(resp => {
-        console.log(resp.data)
         setLista(resp.data)
       })
 
       .catch(err => {
-        console.log('Erro')
         history.push('/')
 
       })

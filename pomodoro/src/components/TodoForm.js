@@ -19,7 +19,6 @@ const TodoForm = props => {
   //Envia as informações do Formulário para o banco
   async function SubmitDBHandler(inputText, pomo) {
     try {
-      console.log('teste')
       await api.post('/tarefas', {
         Description: inputText,
         QtdPomo: pomo
@@ -27,7 +26,6 @@ const TodoForm = props => {
       //modifica o estado para recarregar a lista de elementos
       props.setCreate(!props.create)
     } catch (err) {
-      console.log('Erro ao admitir elementos')
     }
   }
 

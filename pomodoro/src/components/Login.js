@@ -52,8 +52,6 @@ const Login = () => {
             data: { token }
           } = response
 
-          console.log(response.data.token)
-
           //coloca o token no localStorage da aplicação
           localStorage.setItem('token', JSON.stringify(token))
           //determina que todas as rotas em diante terão o token no header para autorização
@@ -62,7 +60,6 @@ const Login = () => {
           history.push('/tarefas')
         })
     } catch (er) {
-      console.log('User not found')
       setFormError(true)
     }
   }

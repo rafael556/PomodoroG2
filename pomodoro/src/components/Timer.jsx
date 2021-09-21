@@ -30,7 +30,6 @@ class Timer extends React.Component {
   //fazer o relógio começar a rodar
   playTimer(){
     contador = contador +1;
-    //console.log(contador);
     let intervalId = setInterval(this.decreaseTimer, 1000);
     this.props.onPlayStopTimer(true);
     this.setState({
@@ -63,7 +62,6 @@ class Timer extends React.Component {
             }else{ //caso as 3 tarefas não estiverem completas seria o short break
               this.props.toggleInterval(this.state.isSession);
               contador = contador +1;
-              //console.log(contador);
             }
         }else{
             this.setState({
@@ -73,7 +71,6 @@ class Timer extends React.Component {
             //trocar de intervalo para tarefas
             this.props.toggleInterval(this.state.isSession);
             contador = contador +1;
-            //console.log(contador);
           }
         }else{
           this.props.updateTimerMinute(); //diminuir o minuto em 1

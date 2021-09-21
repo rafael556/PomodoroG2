@@ -38,9 +38,6 @@ const Cadastro = () => {
       ) {
         setButtonAuth(false)
       }
-      console.log(userCad)
-      console.log(passwordCad)
-      console.log(passwordConfCad)
     }
     handleForm()
   }, [userCad, passwordCad, passwordConfCad])
@@ -70,7 +67,6 @@ const Cadastro = () => {
           history.push('/tarefas')
         })
     } catch (er) {
-      console.log('Usuário ou senha incompatível')
       setFormError(true)
     }
   }
